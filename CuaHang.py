@@ -26,10 +26,14 @@ for ten,gia in gia_tri.items():
         gia_tri[ten] = 0.00
 
 print("THONG KE HANG TON:")
-sorted_gia_tri = sorted(gia_tri.items(), key=lambda x: x[1], reverse=True)
-for ten, gia in sorted_gia_tri:
-    print("  {:<6} {:>6.2f}".format(ten, gia))
+sorted_gia_tri = sorted(gia_tri.items(), key=lambda x:(-x[1], x[0]), reverse=False)
 
+#tìm ra tên mặt hàng có độ dài lớn nhất
+ten_dai_nhat = max(len(ten) for ten in gia_tri)
+
+for ten, gia in sorted_gia_tri:
+    print("  {:<{}} {:>6.2f}".format(ten, ten_dai_nhat , gia))
+ 
 #code chạy                                                 #expected
 #NHAP BANG GIA:                                            #NHAP BANG GIA:
 #  Ten mat hang: tao                                       #  Ten mat hang: tao
@@ -46,6 +50,6 @@ for ten, gia in sorted_gia_tri:
 #  So luong ton kho: 3                                     #  So luong ton kho: 3
 #  Ten mat hang:                                           #  Ten mat hang:
 #THONG KE HANG TON:                                        #THONG KE HANG TON:
-#  tao      9.00                                           #  chuoi    9.00
-#  chuoi    9.00                                           #  tao      9.00
+#  chuoi    9.00                                           #  chuoi    9.00
+#  tao      9.00                                           #  tao      9.00
 #  cam      0.00                                           #  cam      0.00
