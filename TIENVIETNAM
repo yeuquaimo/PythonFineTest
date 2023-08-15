@@ -1,0 +1,19 @@
+from math import *
+n = int(input("N = "))
+m = int(input("M = "))
+dem=0
+for a in range (n//5000,-1,-1):
+    n1= n-a*5000
+    if a>m: break
+    for b in range (n1//2000,-1,-1):
+        n2=n1-b*2000
+        if a+b>m: break
+        for c in range (n2//1000,-1,-1):
+            n3=n2-c*1000
+            if a+b+c>m: break
+            for d in range (0 if n3%200==0 else 1,n3//500 +1,2):
+                n4=n3-d*500
+                if(n4%200 !=0): continue
+                e= n4//200
+                if a+b+c+d+e<=m: dem=dem+1 
+print("Co %d phuong an doi tien" %dem)
